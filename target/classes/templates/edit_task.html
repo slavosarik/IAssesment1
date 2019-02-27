@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit task</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h2>Edit task</h2>
+    <p th:text="'ID: ' + ${task.id}" />
+    <p th:text="'Name: ' + ${task.name}" />
+    <p th:text="'Duration: ' + ${task.getDuration()}" />
+    <br><br>
+
+    <form action="#" th:action="@{/schedule/1}" th:object="${task}" method="post">
+        <p th:text="'ID: ' + ${task.getId()}" />
+        <p th:text="'Name: '"/> <input type="text" value = newName th:field="*{name}" />
+
+        <br><br>
+        <input type="submit" value="Submit" />
+    </form>
+
+    <!--
+        <form action="#" th:action="@(/schedule/{id)" th:object="${task}" method="post">
+            <p th:text="'ID: ' + ${task.getId()}" />
+            <p th:text="'Name: '"/> <input type="text" value = ${task.getName()} th:field="*{name}" />
+            <p th:text="'Duration: '"/> <input type="text" value = ${task.getDuration()} th:field="*{duration}" />
+            <p th:text="'Task category: '"/>
+                <input type="radio" value="School" th:field="*{taskCategory}" />School<br>
+                <input type="radio" value="Work" th:field="*{taskCategory}" />Work<br>
+                <input type="radio" value="Household" th:field="*{taskCategory}" />Household<br>
+                <input type="radio" value="Free time" th:field="*{taskCategory}" />Free time<br>
+                <input type="radio" value="Other" th:field="*{taskCategory}" />Other<br>
+            <br><br>
+            <input type="submit" value="Submit" />
+        </form>
+        -->
+</body>
+</html>
